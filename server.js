@@ -66,5 +66,8 @@ app.route('/users/:id')
 })
 // DELETE
 .delete((req,res)=>{
-  // User.findByIdAndDelete()
+  User.findByIdAndDelete(
+    req.params.id,
+    (err, data)=>sendResponse(err,data,res)  
+  )
 })
