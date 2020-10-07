@@ -6,20 +6,20 @@ const app= express();
 
 const sendResponse = (err, data, res) => {
     if (err) {
-      res.json({
+      res.status(404).json({
         success: false,
         message: err,
-      }, 404)
+      })
     } else if (!data) {
-      res.json({
+      res.status(404).json({
         success: false,
         message: "Not found",
-      }, 404)
+      })
     } else {
-      res.json({
+      res.status(200).json({
         success: true,
         data: data,
-      }, 200)
+      })
     }
   }
 
